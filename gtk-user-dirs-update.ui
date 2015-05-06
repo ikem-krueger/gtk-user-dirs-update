@@ -97,12 +97,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_desktop">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -153,12 +153,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_documents">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -209,12 +209,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_download">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -265,12 +265,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_music">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -321,12 +321,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_pictures">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -377,12 +377,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_publicshare">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -433,12 +433,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_templates">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -489,12 +489,12 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_videos">
-                    <property name="label">gtk-open</property>
+                    <property name="label">_Select</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
+                    <property name="use_underline">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
