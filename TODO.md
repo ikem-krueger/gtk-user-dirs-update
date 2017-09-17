@@ -1,1 +1,2 @@
+- [ ] add a dialog to move files to the new destination
 - [ ] integrate it into the mint-desktop tool
