@@ -2,7 +2,7 @@
 
 The GTK+ User Dirs Update tool let you update the xdg directory paths.
 
-!["Screenshot of the Gtk User Dirs Update tool"](https://github.com/ikem-krueger/gtk-user-dirs-update/blob/master/Screenshots/gtk-user-dirs-update.png)
+!["Screenshot of the Gtk User Dirs Update tool"](https://github.com/ikem-krueger/gtk-user-dirs-update/blob/master/IMG_5951.PNG)
 
 | Operating system | Dependencies                                    |
 | ---------------- | :---------------------------------------------- |
