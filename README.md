@@ -6,4 +6,4 @@ The GTK+ User Dirs Update tool let you update the xdg directory paths.
 
 | Operating system | Dependencies                                    | Version | License  |
 | :--------------- | :---------------------------------------------- | :------ | :------- |
-| Linux            | Python 2.x, xdg-user-dir, xdg-user-dirs-update  | 1.0     | AGPL-3.0 |
+| Linux            | Python 2.x, xdg-user-dir, xdg-user-dirs-update  | 1.0.0   | AGPL-3.0 |
