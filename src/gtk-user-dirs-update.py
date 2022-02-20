@@ -16,50 +16,34 @@ class GtkUserDir(object):
 		self.window.show()
 
 		self.entry_desktop = builder.get_object("entry_desktop")
-		self.entry_desktop.connect("activate", self.select_entry_xdg_dir, self.entry_desktop, "DESKTOP")
-		self.button_desktop = builder.get_object("button_desktop")
-		self.button_desktop.connect("clicked", self.select_button_xdg_dir, self.entry_desktop, "DESKTOP")
+		self.entry_desktop.connect("button-press-event", self.select_button_xdg_dir, self.entry_desktop, "DESKTOP")
 
 		self.entry_documents = builder.get_object("entry_documents")
-		self.entry_documents.connect("activate", self.select_entry_xdg_dir, self.entry_documents, "DOCUMENTS")
-		self.button_documents = builder.get_object("button_documents")
-		self.button_documents.connect("clicked", self.select_button_xdg_dir, self.entry_documents, "DOCUMENTS")
+		self.entry_documents.connect("button-press-event", self.select_button_xdg_dir, self.entry_documents, "DOCUMENTS")
 
 		self.entry_download = builder.get_object("entry_download")
-		self.entry_download.connect("activate", self.select_entry_xdg_dir, self.entry_download, "DOWNLOAD")
-		self.button_download = builder.get_object("button_download")
-		self.button_download.connect("clicked", self.select_button_xdg_dir, self.entry_download, "DOWNLOAD")
+		self.entry_download.connect("button-press-event", self.select_button_xdg_dir, self.entry_download, "DOWNLOAD")
 
 		self.entry_music = builder.get_object("entry_music")
-		self.entry_music.connect("activate", self.select_entry_xdg_dir, self.entry_music, "MUSIC")
-		self.button_music = builder.get_object("button_music")
-		self.button_music.connect("clicked", self.select_button_xdg_dir, self.entry_music, "MUSIC")
+		self.entry_music.connect("button-press-event", self.select_button_xdg_dir, self.entry_music, "MUSIC")
 
 		self.entry_pictures = builder.get_object("entry_pictures")
-		self.entry_pictures.connect("activate", self.select_entry_xdg_dir, self.entry_pictures, "PICTURES")
-		self.button_pictures = builder.get_object("button_pictures")
-		self.button_pictures.connect("clicked", self.select_button_xdg_dir, self.entry_pictures, "PICTURES")
+		self.entry_pictures.connect("button-press-event", self.select_button_xdg_dir, self.entry_pictures, "PICTURES")
 
 		self.entry_publicshare = builder.get_object("entry_publicshare")
-		self.entry_publicshare.connect("activate", self.select_entry_xdg_dir, self.entry_publicshare, "PUBLICSHARE")
-		self.button_publicshare = builder.get_object("button_publicshare")
-		self.button_publicshare.connect("clicked", self.select_button_xdg_dir, self.entry_publicshare, "PUBLICSHARE")
+		self.entry_publicshare.connect("button-press-event", self.select_button_xdg_dir, self.entry_publicshare, "PUBLICSHARE")
 
 		self.entry_templates = builder.get_object("entry_templates")
-		self.entry_templates.connect("activate", self.select_entry_xdg_dir, self.entry_templates, "TEMPLATES")
-		self.button_templates = builder.get_object("button_templates")
-		self.button_templates.connect("clicked", self.select_button_xdg_dir, self.entry_templates, "TEMPLATES")
+		self.entry_templates.connect("button-press-event", self.select_button_xdg_dir, self.entry_templates, "TEMPLATES")
 
 		self.entry_videos = builder.get_object("entry_videos")
-		self.entry_videos.connect("activate", self.select_entry_xdg_dir, self.entry_videos, "VIDEOS")
-		self.button_videos = builder.get_object("button_videos")
-		self.button_videos.connect("clicked", self.select_button_xdg_dir, self.entry_videos, "VIDEOS")
+		self.entry_videos.connect("button-press-event", self.select_button_xdg_dir, self.entry_videos, "VIDEOS")
 
 		self.button_reset = builder.get_object("button_reset")
 		self.button_reset.connect("clicked", self.reset_xdg_dirs)
 
-		self.button_close = builder.get_object("button_close")
-		self.button_close.connect("clicked", self.quit)
+		#self.button_apply = builder.get_object("button_apply")
+		#self.button_apply.connect("clicked", self.apply)
 
 		self.update_entries()
 
@@ -85,11 +69,13 @@ class GtkUserDir(object):
 
 		self.set_xdg_dir(name, path)
 
-	def select_button_xdg_dir(self, widget, entry, name):
-		dialog = Gtk.FileChooserDialog("Select a directory", None, 
+	def select_button_xdg_dir(self, widget, other, entry, name):
+		dialog = Gtk.FileChooserDialog("Select a directory", None,
 										Gtk.FileChooserAction.SELECT_FOLDER, 
 										(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, 
 										Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+
+		dialog.set_current_folder(entry.get_text())
 
 		response = dialog.run()
 
