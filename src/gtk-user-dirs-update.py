@@ -1,5 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import subprocess
 
@@ -72,7 +74,7 @@ class GtkUserDir(object):
 		self.entry_videos.set_text(self.find_xdg_dir("VIDEOS"))
 
 	def find_xdg_dir(self, name):
-		return subprocess.check_output(['xdg-user-dir', name]).rstrip('\n')
+		return subprocess.check_output(['xdg-user-dir', name]).decode().rstrip('\n')
 
 	def set_xdg_dir(self, name, path):
 		# there need to be a check here..
