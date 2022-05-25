@@ -27,16 +27,16 @@ class GtkUserDir(object):
             "VIDEOS":"folder-videos"
         }
 
-        for name in sorted(icons.keys()):
+        for icon_name in sorted(icons.keys()):
             image = Gtk.Image()
-            image.set_from_icon_name(icons[name], Gtk.IconSize.LARGE_TOOLBAR)
+            image.set_from_icon_name(icons[icon_name], Gtk.IconSize.LARGE_TOOLBAR)
 
             label = Gtk.Label()
-            label.set_label(name.capitalize() + ":")
+            label.set_label(icon_name.capitalize() + ":")
 
             entry = Gtk.Entry()
-            entry.set_text(self.find_xdg_dir(name))
-            entry.connect("button-press-event", self.select_button_xdg_dir, entry, name)
+            entry.set_text(self.find_xdg_dir(icon_name))
+            entry.connect("button-press-event", self.select_button_xdg_dir, entry, icon_name)
 
             hbox = Gtk.Box()
 
