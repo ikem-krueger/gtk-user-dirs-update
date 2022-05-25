@@ -5,20 +5,17 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import subprocess
 
-class GtkUserDir(object):
+class Dialog(Gtk.Dialog):
     def __init__(self):
-        builder = Gtk.Builder()
-        builder.add_from_file("gtk-user-dirs-update.ui")
+        Gtk.Dialog.__init__(self)
 
-        self.window = builder.get_object("dialog1")
-        self.window.set_title("Update User Directories")
-        self.window.connect("destroy", self.quit)
+        self.set_title("Update User Directories")
+        self.set_resizable(False)
 
-        self.vbox1 = Gtk.Box()
-        self.vbox1.set_orientation(Gtk.Orientation.VERTICAL)
+        reset_button = self.add_button("gtk-revert-to-saved", Gtk.ResponseType.CANCEL)
+        apply_button = self.add_button("gtk-apply", Gtk.ResponseType.OK)
 
-        self.dialog_vbox1 = builder.get_object("dialog-vbox1")
-        self.dialog_vbox1.pack_end(self.vbox1, True, True, 0)
+        self.connect("response", self.on_response)
 
         icons = {
             "DESKTOP":"user-desktop",
@@ -30,6 +27,8 @@ class GtkUserDir(object):
             "TEMPLATES":"folder-templates",
             "VIDEOS":"folder-videos"
         }
+
+        self.vbox.set_spacing(4)
 
         for icon_name in sorted(icons.keys()):
             image = Gtk.Image()
@@ -48,15 +47,21 @@ class GtkUserDir(object):
             hbox.pack_start(label, False, True, 0)
             hbox.pack_start(entry, True, True, 6)
 
-            self.vbox1.pack_start(hbox, True, True, 0)
+            self.vbox.add(hbox)
 
-        self.button_reset = builder.get_object("button_reset")
-        self.button_reset.connect("clicked", self.reset_xdg_dirs)
+        self.set_focus(apply_button)
+        self.show_all()
 
-        #self.button_apply = builder.get_object("button_apply")
-        #self.button_apply.connect("clicked", self.apply)
+    def on_response(self, dialog, response):
+        if response == Gtk.ResponseType.OK:
+            self.apply()
+        elif response == Gtk.ResponseType.CANCEL:
+            self.reset_xdg_dirs()
+        else:
+            self.quit()
 
-        self.window.show_all()
+    def apply(self):
+        print("TODO: implement apply()")
 
     def update_entries(self):
         print("TODO: implement update_entries()")
@@ -65,7 +70,7 @@ class GtkUserDir(object):
         return subprocess.check_output(['xdg-user-dir', name]).decode().rstrip('\n')
 
     def set_xdg_dir(self, name, path):
-        # there need to be a check here..
+        # TODO: there need to be a check here...
         subprocess.Popen(['xdg-user-dirs-update', '--set', name, path])
 
     def select_entry_xdg_dir(self, widget, entry, name):
@@ -93,7 +98,7 @@ class GtkUserDir(object):
 
         dialog.destroy()
 
-    def reset_xdg_dirs(self, widget):
+    def reset_xdg_dirs(self):
         subprocess.Popen(['xdg-user-dirs-update', '--force'])
 
         self.update_entries()
@@ -102,6 +107,5 @@ class GtkUserDir(object):
         Gtk.main_quit()
 
 if __name__ == "__main__":
-    app = GtkUserDir()
+    app = Dialog()
     Gtk.main()
-
