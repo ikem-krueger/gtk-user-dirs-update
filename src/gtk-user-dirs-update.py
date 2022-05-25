@@ -14,7 +14,11 @@ class GtkUserDir(object):
         self.window.set_title("Update User Directories")
         self.window.connect("destroy", self.quit)
 
-        self.vbox1 = builder.get_object("vbox1")
+        self.vbox1 = Gtk.Box()
+        self.vbox1.set_orientation(Gtk.Orientation.VERTICAL)
+
+        self.dialog_vbox1 = builder.get_object("dialog-vbox1")
+        self.dialog_vbox1.pack_end(self.vbox1, True, True, 0)
 
         icons = {
             "DESKTOP":"user-desktop",
