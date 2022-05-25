@@ -54,6 +54,9 @@ class GtkUserDir(object):
 
         self.window.show_all()
 
+    def update_entries(self):
+        print("TODO: implement update_entries()")
+
     def find_xdg_dir(self, name):
         return subprocess.check_output(['xdg-user-dir', name]).decode().rstrip('\n')
 
